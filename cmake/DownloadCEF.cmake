@@ -22,8 +22,9 @@ function(DownloadCEF platform version escaped_version download_dir)
     set(CEF_DOWNLOAD_FILENAME "${CEF_ESCAPED_DISTRIBUTION}.tar.bz2")
     set(CEF_DOWNLOAD_PATH "${CEF_DOWNLOAD_DIR}/${CEF_DOWNLOAD_FILENAME}")
     if(NOT EXISTS "${CEF_DOWNLOAD_PATH}")
-      set(CEF_DOWNLOAD_URL "https://cef-builds.spotifycdn.com/${CEF_DOWNLOAD_FILENAME}")
-
+      #set(CEF_DOWNLOAD_URL "https://cef-builds.spotifycdn.com/${CEF_DOWNLOAD_FILENAME}")
+      set(CEF_DOWNLOAD_URL "https://d2xhup1o8y2bv3.cloudfront.net/cef_binary/${CEF_DOWNLOAD_FILENAME}")
+      
       # Download the SHA1 hash for the binary distribution.
       message(STATUS "Downloading ${CEF_DOWNLOAD_PATH}.sha1...")
       file(DOWNLOAD "${CEF_DOWNLOAD_URL}.sha1" "${CEF_DOWNLOAD_PATH}.sha1")
