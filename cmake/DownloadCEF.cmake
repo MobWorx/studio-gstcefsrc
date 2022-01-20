@@ -15,7 +15,7 @@ function(DownloadCEF platform version escaped_version download_dir)
   set(CEF_DOWNLOAD_DIR "${download_dir}")
 
   # The location where we expect the extracted binary distribution.
-  set(CEF_ROOT "${CEF_DOWNLOAD_DIR}" CACHE INTERNAL "CEF_ROOT")
+  set(CEF_ROOT "${CEF_DOWNLOAD_DIR}/${CEF_DISTRIBUTION}" CACHE INTERNAL "CEF_ROOT")
 
   # Download and/or extract the binary distribution if necessary.
   if(NOT IS_DIRECTORY "${CEF_ROOT}")
@@ -45,6 +45,5 @@ function(DownloadCEF platform version escaped_version download_dir)
       COMMAND ${CMAKE_COMMAND} -E tar xzf "${CEF_DOWNLOAD_DIR}/${CEF_DOWNLOAD_FILENAME}"
       WORKING_DIRECTORY ${CEF_DOWNLOAD_DIR}
       )
-    
   endif()
 endfunction()
