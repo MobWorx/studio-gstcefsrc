@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12.1)
 
-set(CMAKE_CONFIGURATION_TYPES Debug Release)
+set(CMAKE_CONFIGURATION_TYPES Release)
 
 project(gstcef)
 
