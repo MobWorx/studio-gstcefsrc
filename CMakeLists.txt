@@ -30,6 +30,7 @@ elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
     set(CEF_PLATFORM "windows32")
   endif()
 endif()
+message(STATUS "CMAKE_CURRENT_SOURCE_DIR is ${CMAKE_CURRENT_SOURCE_DIR}...")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(DownloadCEF)
