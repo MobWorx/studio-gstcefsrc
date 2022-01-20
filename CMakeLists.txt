@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12.1)
 
-set(CMAKE_CONFIGURATION_TYPES Release)
+set(CMAKE_CONFIGURATION_TYPES Debug Release)
 
 project(gstcef)
 
@@ -30,14 +30,11 @@ elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
     set(CEF_PLATFORM "windows32")
   endif()
 endif()
-message(STATUS "CMAKE_MODULE_PATH is ${CMAKE_MODULE_PATH}...")
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-message(STATUS "CMAKE_MODULE_PATH is ${CMAKE_MODULE_PATH}...")
-
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/out/cmake")
 include(DownloadCEF)
-#DownloadCEF("${CEF_PLATFORM}" "${CEF_VERSION}" "${CEF_ESCAPED_VERSION}" "${CMAKE_SOURCE_DIR}/third_party/cef")
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+DownloadCEF("${CEF_PLATFORM}" "${CEF_VERSION}" "${CEF_ESCAPED_VERSION}" "${CMAKE_SOURCE_DIR}/third_party/cef")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CEF_ROOT}/cmake")
 
 find_package(CEF REQUIRED)
 add_subdirectory(${CEF_LIBCEF_DLL_WRAPPER_PATH} libcef_dll_wrapper)
