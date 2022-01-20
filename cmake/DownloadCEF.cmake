@@ -46,6 +46,8 @@ function(DownloadCEF platform version escaped_version download_dir)
       WORKING_DIRECTORY ${CEF_DOWNLOAD_DIR}
       )
       SUBDIRLIST(SUBDIRS ${CEF_DOWNLOAD_DIR})
+      message(STATUS "Directory Listing ${SUBDIRS}...")
+
     endif()
 endfunction()
 
