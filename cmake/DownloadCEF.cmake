@@ -45,6 +45,6 @@ function(DownloadCEF platform version escaped_version download_dir)
       COMMAND ${CMAKE_COMMAND} -E tar -xzf "${CEF_DOWNLOAD_DIR}/${CEF_DOWNLOAD_FILENAME}"
       WORKING_DIRECTORY ${CEF_DOWNLOAD_DIR}
       )
-    set(CEF_DIR "${CEF_DOWNLOAD_DIR}/cmake")
+    message(STATUS "CEF_DOWNLOAD_DIR is ${CEF_DOWNLOAD_DIR}...")
   endif()
 endfunction()
