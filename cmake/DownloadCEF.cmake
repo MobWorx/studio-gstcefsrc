@@ -13,10 +13,14 @@ function(DownloadCEF platform version escaped_version download_dir)
   set(CEF_ESCAPED_DISTRIBUTION "cef_binary_${escaped_version}_${platform}")
   set(CEF_DISTRIBUTION "cef_binary_${version}_${platform}")
   set(CEF_DOWNLOAD_DIR "${download_dir}")
+  
+  message(STATUS "CEF_DISTRIBUTION : ${CEF_DISTRIBUTION}...")
 
   # The location where we expect the extracted binary distribution.
   set(CEF_ROOT "${CEF_DOWNLOAD_DIR}/${CEF_DISTRIBUTION}" CACHE INTERNAL "CEF_ROOT")
+  set(CEF_DIR "${CEF_DOWNLOAD_DIR}/${CEF_DISTRIBUTION}" CACHE INTERNAL "CEF_DIR")
 
+  
   # Download and/or extract the binary distribution if necessary.
   if(NOT IS_DIRECTORY "${CEF_ROOT}")
     set(CEF_DOWNLOAD_FILENAME "${CEF_ESCAPED_DISTRIBUTION}.tar.bz2")
