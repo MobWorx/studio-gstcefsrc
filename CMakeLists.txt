@@ -10,9 +10,9 @@ if(POLICY CMP0074)
     #policy for <PackageName>_ROOT variables
     cmake_policy(SET CMP0074 NEW)
 endif()
-
-set(CEF_VERSION "97.1.5+g2b00258+chromium-97.0.4692.71")
-set(CEF_ESCAPED_VERSION "97.1.5%2Bg2b00258%2Bchromium-97.0.4692.71")
+#cef_binary_98.0.0-master.2485+g51e8bd9+chromium-98.0.4758.0_linux64
+set(CEF_VERSION "98.0.0-master.2485+g51e8bd9+chromium-98.0.4758.0")
+set(CEF_ESCAPED_VERSION "98.0.0-master.2485%2Bg51e8bd9%2Bchromium-98.0.4758.0")
 
 # Determine the platform.
 if("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
