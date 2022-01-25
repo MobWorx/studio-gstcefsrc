@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12.1)
 
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
-
+#cef_binary_92.0.27+g274abcf+chromium-92.0.4515.159_linux64.tar.bz2
 project(gstcef)
 
 set_property(GLOBAL PROPERTY OS_FOLDERS ON)
@@ -11,8 +11,8 @@ if(POLICY CMP0074)
     cmake_policy(SET CMP0074 NEW)
 endif()
 #cef_binary_98.0.0-master.2485+g51e8bd9+chromium-98.0.4758.0_linux64
-set(CEF_VERSION "98.0.0-master.2485+g51e8bd9+chromium-98.0.4758.0")
-set(CEF_ESCAPED_VERSION "98.0.0-master.2485%2Bg51e8bd9%2Bchromium-98.0.4758.0")
+set(CEF_VERSION "92.0.27+g274abcf+chromium-92.0.4515.159")
+set(CEF_ESCAPED_VERSION "92.0.27%2Bg274abcf%2Bchromium-92.0.4515.159")
 
 # Determine the platform.
 if("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
