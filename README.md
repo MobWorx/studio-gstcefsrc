@@ -57,3 +57,9 @@ GST_PLUGIN_PATH=Release:$GST_PLUGIN_PATH gst-launch-1.0 \
 ``` shell
 gst-launch-1.0 playbin uri=web://www.soundcloud.com/platform/sama
 ```
+
+## Use docker
+``` shell
+docker build -t yt -f dockerfile/youtube.dockerfile .
+docker run --name youtube --env URL=<your_website> --env KEY=<your_key> yt
+```
