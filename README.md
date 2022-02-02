@@ -60,6 +60,10 @@ gst-launch-1.0 playbin uri=web://www.soundcloud.com/platform/sama
 
 ## Use docker
 ``` shell
-docker build -t yt -f dockerfile/youtube.dockerfile .
-docker run --name youtube --env URL=<your_website> --env KEY=<your_key> yt
+docker build -t yt -f youtube.dockerfile .
+
+docker run --name youtube --env URL="<your_website>" --env KEY=<your_key> yt
 ```
+Few notes:
+- if there is '&' inside the URL of your choice, please wrap the whole URL with ""
+- if you are referencing localhost, do not forget to replace it with smth suitable for a docker ;)

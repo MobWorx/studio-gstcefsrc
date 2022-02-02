@@ -18,10 +18,12 @@ ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2
 ENV URL webpage2stream
 ENV KEY youtube_key
 
-ENTRYPOINT xvfb-run --server-args="-screen 0 ${SCR_WIDTH}x${SCR_HEIGHT}x${SCR_FPS}" gst-launch-1.0 cefsrc url="$URL" ! \
+ENTRYPOINT echo $URL && echo $YOUTUBE_URL && echo $KEY &&\
+xvfb-run --server-args="-screen 0 ${SCR_WIDTH}x${SCR_HEIGHT}x${SCR_FPS}" gst-launch-1.0 cefsrc url="$URL" ! \
     video/x-raw, width=${SCR_WIDTH}, height=${SCR_HEIGHT}, framerate=${SCR_FPS}/1 ! \
     cefdemux name=d \
     d.video ! queue max-size-bytes=0 max-size-buffers=0 max-size-time=3000000000 ! videoconvert ! x264enc key-int-max=60 bitrate=3000 ! h264parse ! \
     flvmux name=mux \
-    d.audio ! queue max-size-bytes=0 max-size-buffers=0 max-size-time=3000000000 ! audioconvert ! avenc_aac ! aacparse ! mux. \
+    audiotestsrc do-timestamp=true is-live=true  volume=0.0 ! audiomixer name=mix ! queue max-size-bytes=0 max-size-buffers=0 max-size-time=3000000000 ! audioconvert ! avenc_aac ! aacparse ! mux. \
+    d.audio ! queue ! mix. \
     mux. ! rtmpsink location="$YOUTUBE_URL/$KEY"
